@@ -1,0 +1,322 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"i",
+				"is_active"
+			],
+			[
+				"is",
+				"is"
+			],
+			[
+				"get",
+				"get_frame"
+			],
+			[
+				"g",
+				"get_frame"
+			],
+			[
+				"User",
+				"UserForm"
+			],
+			[
+				"ge",
+				"getCursorPosition"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "panel/panel/urls.py",
+			"settings":
+			{
+				"buffer_size": 1186,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "panel/main/views.py",
+			"settings":
+			{
+				"buffer_size": 1174,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 138.0,
+		"last_filter": "indent",
+		"selected_items":
+		[
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control: p",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/ahsan/Django_project/panel",
+		"/home/ahsan/Django_project/panel/main",
+		"/home/ahsan/Django_project/panel/staff",
+		"/home/ahsan/Django_project/panel/static/my_static/css",
+		"/home/ahsan/Django_project/panel/templates"
+	],
+	"file_history":
+	[
+		"/home/ahsan/Django_project/panel/panel/settings.py",
+		"/home/ahsan/Django_project/panel/templates/main.html",
+		"/home/ahsan/Django_project/panel/templates/login.html",
+		"/home/ahsan/Django_project/panel/staff/views.py",
+		"/home/ahsan/Django_project/panel/staff/apps.py",
+		"/home/ahsan/Django_project/panel/main/camera.py",
+		"/home/ahsan/Django_project/panel/main/views.py",
+		"/home/ahsan/Django_project/panel/static/my_static/css/login.css",
+		"/home/ahsan/Django_project/panel/staff/form.py",
+		"/home/ahsan/Django_project/panel/static/my_static/css/semantic.min.css",
+		"/home/ahsan/Django_project/panel/templates/loginbak.html",
+		"/home/ahsan/Django_project/panel/templates/header.htm",
+		"/home/ahsan/flask-video-streaming/camera.py",
+		"/home/ahsan/Django_project/panel/main/video.py",
+		"/home/ahsan/Django_project/panel/Staff/models.py",
+		"/home/ahsan/Django_project/panel/Staff/form.py",
+		"/home/ahsan/Django_project/panel/Staff/views.py",
+		"/home/ahsan/Django_project/panel/tester/views.py",
+		"/home/ahsan/Django_project/panel/Users/models.py",
+		"/home/ahsan/Django_project/panel/templates/login.htm",
+		"/home/ahsan/Django_project/panel/users/views.py",
+		"/home/ahsan/Django_project/panel/users/form.py",
+		"/home/ahsan/Django_project/panel/users/admin.py",
+		"/home/ahsan/Django_project/panel/users/models.py",
+		"/home/ahsan/Django_project/panel/templates/home.html",
+		"/home/ahsan/Django_project/panel/tester/models.py",
+		"/home/ahsan/flask-video-streaming/app.py",
+		"/home/ahsan/flask-video-streaming/camera_pi.py",
+		"/home/ahsan/Desktop/second.html",
+		"/opt/lampp/htdocs/phptuts/first.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"LogoutUser",
+			">\",",
+			"icon",
+			"img",
+			"()",
+			"login",
+			"Context",
+			",\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "panel/panel/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1186,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1153,
+								1153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "panel/main/views.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1174,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "djangosublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 191.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
