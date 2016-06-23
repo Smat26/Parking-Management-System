@@ -6,10 +6,33 @@
 	{% load staticfiles %}
 	<!-- <script src={% static 'js/jquery.min.js' %}></script> -->
 	<script src="http://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'>
+	<link rel="stylesheet" type="text/css" href= {% static 'css/semantic.min.css' %}/>
+	<script src={% static 'js/semantic.min.js' %}></script>
+
+	<style type="text/css">
+		body {
+			background-color: #DADADA;
+		}
+		body > .grid {
+			height: 100%;
+		}
+		.image {
+			margin-top: -100px;
+		}
+		.column {
+			max-width: 450px;
+		}
+	</style>
 </head>
 <body>
-	Hello {{ user |title}}
-	<canvas id="myCanvas" width="720" height="480"></canvas>
+	<div class="ui text container column stackable center">
+		<h3 class="ui header">Panel</h3>
+		Hello {{ user |title}}
+		<div class = "ui centre aligned ">
+			<canvas  id="myCanvas" width="720" height="480"></canvas>
+		</div>
+	</div>
 	<script>
 		var ix;
 		var iy;
