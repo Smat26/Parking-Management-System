@@ -15,7 +15,6 @@ class Camera(object):
         b = '../static/static_root/vid/video2.mp4'
         c = '/home/ahsan/Django_project/panel/static/static_root/vid/video2.mp4'
 
-        print b;
         # self.frames = cv2.VideoCapture(c)
         self.frames = cv2.VideoCapture('rtsp://media.smart-streaming.com/mytest/mp4:sample_phone_300k.mp4')
 	

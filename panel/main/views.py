@@ -2,13 +2,15 @@ from camera import Camera
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import StreamingHttpResponse
-from PIL import Image
-import base64
-import StringIO
+import json
+from rects import Rect
 
 # Create your views here.
 @login_required
 def panel(request):
+    a = generateJson();
+    print a;
+
     Context = ({})
 
     return render(request, 'main.html', Context)
@@ -40,3 +42,10 @@ def videofeed(request):
     # response =  HttpResponse(content_type="image/jpeg")
     # Camera.get_frame().save(response, "jpeg")
     # return Camera().get_frame()
+
+def generateJson():
+    a = {'ix':0,'iy':0,'fx':8,'fy':8,'name':'F1'}
+    b = {'ix':10,'iy':10,'fx':15,'fy':12,'name':'F2'}
+    c = [a,b]
+    return json.dumps(c)
+
