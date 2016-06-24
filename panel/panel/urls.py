@@ -15,17 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
-from staff import views
 from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',RedirectView.as_view(url='login/', permanent=False) ),
+    url(r'^$', RedirectView.as_view(url='login/', permanent=False)),
     url(r'^login/$', 'staff.views.LoginUser'),
     url(r'^new/$', 'tester.views.home', name='home'),
-	url(r'^main/$', 'main.views.panel'),
-	url(r'^video/$', 'main.views.videofeed'),
-	url(r'^logout/$', 'staff.views.LogoutUser'),
+    url(r'^main/$', 'main.views.panel'),
+    url(r'^video/$', 'main.views.videofeed'),
+    url(r'^logout/$', 'staff.views.LogoutUser'),
+    url(r'^update/$', 'main.views.update'),
+
 ]

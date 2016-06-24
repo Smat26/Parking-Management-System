@@ -1,29 +1,37 @@
-from camera import Camera
+from camera import Stream
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import StreamingHttpResponse
+from django.http import HttpResponse
 import json
-from rects import Rect
 
 # Create your views here.
+
 @login_required
 def panel(request):
-    a = generateJson();
-    print a;
+    a = generateJson()
+    print a
 
-    Context = ({})
+    Context = ({
+
+        'hello': 'HI'
+
+        })
 
     return render(request, 'main.html', Context)
 
-def gen(camera):
+
+def gen(stream):
     """Video streaming generator function."""
     while True:
-        frame = camera.get_frame()
-        yield (b'--frame\r\n'+
+        frame = stream.get_frame()
+        yield (b'--frame\r\n' +
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
+@login_required
 def videofeed(request):
+
     # a = gen(Camera())
 
     # red = camera.get_frame()
@@ -35,7 +43,7 @@ def videofeed(request):
     # return HttpResponse(gen(Camera()),
     #                 content_type='multipart/x-mixed-replace; boundary=frame')
 
-    response = StreamingHttpResponse(gen(Camera()),content_type="multipart/x-mixed-replace; boundary=frame")
+    response = StreamingHttpResponse(gen(Stream()), content_type="multipart/x-mixed-replace; boundary=frame")
     # a.save(response, "JPEG")
     return response
 
@@ -43,9 +51,14 @@ def videofeed(request):
     # Camera.get_frame().save(response, "jpeg")
     # return Camera().get_frame()
 
+
 def generateJson():
-    a = {'ix':0,'iy':0,'fx':8,'fy':8,'name':'F1'}
-    b = {'ix':10,'iy':10,'fx':15,'fy':12,'name':'F2'}
-    c = [a,b]
+    a = {'ix': 0, 'iy': 0, 'fx': 8, 'fy': 8, 'name': 'F1'}
+    b = {'ix': 10, 'iy': 10, 'fx': 15, 'fy': 12, 'name': 'F2'}
+    c = [a, b]
     return json.dumps(c)
+
+def update(request):
+    
+    return HttpResponse("HI")
 
