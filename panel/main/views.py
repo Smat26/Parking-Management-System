@@ -11,11 +11,11 @@ import json
 def panel(request):
     a = generateJson()
     print a
-
+    src = '\"http://'+str(request.META['HTTP_HOST'])+'/video/\"'
+    print src
     Context = ({
 
-        'hello': 'HI'
-
+        'src': src
         })
 
     return render(request, 'main.html', Context)
@@ -59,6 +59,6 @@ def generateJson():
     return json.dumps(c)
 
 def update(request):
-    
+
     return HttpResponse("HI")
 
