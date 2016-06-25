@@ -9,7 +9,7 @@ class Stream(object):
     def __init__(self):
 
         # self.frames = cv2.VideoCapture(c)
-        self.frames = cv2.VideoCapture('rtsp://media.smart-streaming.com/mytest/mp4:sample_phone_300k.mp4')
+        self.frames = cv2.VideoCapture('rtsp://mm2.pcslab.com/mm/7m800.mp4')
 
         # FOR WEBCAM
         # self.frames = cv2.VideoCapture(0)
