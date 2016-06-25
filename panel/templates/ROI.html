@@ -10,7 +10,7 @@ var ix;
 		var canvas = document.getElementById('myCanvas');
 		var ctx = canvas.getContext('2d');
 		var video = new Image();
-		video.src = "http://127.0.0.1:8000/video/";
+		video.src = {{ src | safe}};
 		var JsonData= [{}]
 
 
