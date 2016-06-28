@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^main/$', 'main.views.panel'),
     url(r'^video/$', 'main.views.videofeed'),
     url(r'^logout/$', 'staff.views.LogoutUser'),
-    url(r'^update/$', 'main.views.update'),
+    url(r'^getRoi/$', 'main.views.getRoi'),
+    url(r'^getCamera/$', 'main.views.getCamera'),
+    url(r'^addroi/$', 'main.views.AddRoi'),
 
 ]

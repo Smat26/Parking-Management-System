@@ -6,10 +6,10 @@ import io
 class Stream(object):
 
     # WE GET THE VIDEO OBJECT OF THE RTSP STREAM USING OPENCV VIDEOCAPTURE() FUNCTION
-    def __init__(self):
+    def __init__(self, url):
 
         # self.frames = cv2.VideoCapture(c)
-        self.frames = cv2.VideoCapture('rtsp://mm2.pcslab.com/mm/7m800.mp4')
+        self.frames = cv2.VideoCapture(url)
 
         # FOR WEBCAM
         # self.frames = cv2.VideoCapture(0)

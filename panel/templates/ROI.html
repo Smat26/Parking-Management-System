@@ -1,63 +1,88 @@
 {{hello}}
 <script>
-var ix;
-		var iy;
-		var mx;
-		var my;
-		var fx;
-		var fy;
-		var fps = 20;
-		var canvas = document.getElementById('myCanvas');
-		var ctx = canvas.getContext('2d');
-		var video = new Image();
-		video.src = {{ src | safe}};
-		var JsonData= [{}]
+	var ix;
+	var iy;
+	var mx;
+	var my;
+	var fx;
+	var fy;
+	var fps = 20;
+	var canvas = document.getElementById('myCanvas');
+	var ctx = canvas.getContext('2d');
+	var video = new Image();
+	video.src = {{ src | safe}};
 
-
-		window.setInterval(function() {ctx.drawImage(video,
-			canvas.width / 2 - video.width / 2,
-			canvas.height / 2 - video.height / 2
-			)
-		drawRect(JsonData);
-	},fps)
-
-
-		function drawRect(JsonData){
-			for (n = 0; n < JsonData.length; ++n) {
-				obj= JsonData[n]
-				ctx.beginPath();
-				ctx.lineWidth="7";
-				ctx.strokeStyle="yellow";
-				ctx.rect(obj.ix,obj.iy,obj.fx-obj.ix,obj.fy-obj.iy);
-				ctx.stroke();
+	function sendRect(ix,iy,fx,fy){
+		camera = $("#CameraSelect").val();
+		data = {"name": "F1", "min_y": iy, "min_x": ix, "max_x": fx, "max_y": fy, "camera":camera}
+		console.log("sending ROI: "+ data);
+		$.post("/addroi/",
+			data,
+			function(data){
+				console.log("Data Loaded: " + data);
 			}
-		}
+			);
 
-		function getCursorPosition(canvas, event) {
-			var x, y;
+	}
 
-			canoffset = $(canvas).offset();
-			x = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - Math.floor(canoffset.left);
-			y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop - Math.floor(canoffset.top) + 1;
-			console.log("x: " + x + " y: " + y);
 
-			return [x,y];
-		}
+	window.setInterval(function() {ctx.drawImage(video,
+		canvas.width / 2 - video.width / 2,
+		canvas.height / 2 - video.height / 2
+		)
+	//drawRect(RoiJson);
+},fps);
 
-		canvas.addEventListener("mousedown", function(event){
-			c = getCursorPosition(canvas, event);
-			ix = c[0];
-			iy = c[1];
-		}, false);
 
-		canvas.addEventListener("mouseup", function(event){
-			c = getCursorPosition(canvas, event);
-			fx = c[0];
-			fy = c[1];
+	// function drawRect(RoiJson){
+	// 	console.log(RoiJson);
+	// 	for(n=0, n<RoiJson.length, n++){
+	// 		$.each(RoiJson,function(i,o){
+	// 			console.log(fields.min_x);
+	// 			console.log(pk);
+
+	// 		});
+	// 	}
+	// }
+
+		// for (n = 0; n < JsonData.length; ++n) {
+		// 	obj= JsonData[n]
+		// 	ctx.beginPath();
+		// 	ctx.lineWidth="7";
+		// 	ctx.strokeStyle="yellow";
+		// 	ctx.rect(obj.ix,obj.iy,obj.fx-obj.ix,obj.fy-obj.iy);
+		// 	ctx.stroke();
+		// }
+	// }
+
+	function getCursorPosition(canvas, event) {
+		var x, y;
+
+		canoffset = $(canvas).offset();
+		x = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - Math.floor(canoffset.left);
+		y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop - Math.floor(canoffset.top) + 1;
+		console.log("x: " + x + " y: " + y);
+
+		return [x,y];
+	}
+
+	canvas.addEventListener("mousedown", function(event){
+		c = getCursorPosition(canvas, event);
+		ix = c[0];
+		iy = c[1];
+	}, false);
+
+	canvas.addEventListener("mouseup", function(event){
+		c = getCursorPosition(canvas, event);
+		fx = c[0];
+		fy = c[1];
 			// Blue rectangle
-			JsonData.push({"iy": iy, "ix": ix, "fx": fx, "fy": fy,"name": "F1"});
+			cameraselect = document.getElementById( "CameraSelect" );
+			cameraid =  cameraselect.value;
+			RoiJson.push([{"model": "main.roi", "pk": pk, "fields": {"name": "F1", "min_y": iy, "min_x": ix, "max_x": fx, "max_y": fy, "camera":cameraid ,"occupied": 0}}]);
+			sendRect(ix, iy, fx, fy);
 		}, false);
 
-</script>
+	</script>
 
 

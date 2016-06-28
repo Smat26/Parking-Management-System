@@ -15,7 +15,7 @@ class Camera(models.Model):
         return self.name
 
 
-class Rect(models.Model):
+class Roi(models.Model):
     name = models.CharField(max_length=30)
     min_x = models.IntegerField()
     min_y = models.IntegerField()
@@ -23,6 +23,10 @@ class Rect(models.Model):
     max_y = models.IntegerField()
     camera = models.ForeignKey(Camera, on_delete=models.CASCADE)
     occupied = models.BooleanField()
+
+    class Meta:
+        verbose_name = 'Parking Slot' 
+        verbose_name_plural = 'Parking Slots'
 
     def __str__(self):
         return self.name
