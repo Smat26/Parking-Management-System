@@ -15,7 +15,7 @@
 	function sendRect(ix,iy,fx,fy){
 		camera = $("#CameraSelect").val();
 		data = {"name": "F1", "min_y": iy, "min_x": ix, "max_x": fx, "max_y": fy, "camera":camera}
-		console.log("sending ROI: "+ data);
+		//console.log("sending ROI: "+ data);
 		$.post("/addroi/",
 			data,
 			function(data){
@@ -30,30 +30,25 @@
 		canvas.width / 2 - video.width / 2,
 		canvas.height / 2 - video.height / 2
 		)
-	//drawRect(RoiJson);
+	drawRect(RoiJson);
 },fps);
 
 
-	// function drawRect(RoiJson){
-	// 	console.log(RoiJson);
-	// 	for(n=0, n<RoiJson.length, n++){
-	// 		$.each(RoiJson,function(i,o){
-	// 			console.log(fields.min_x);
-	// 			console.log(pk);
+	function drawRect(RoiJson){
+		$.each(RoiJson,function(i,o){
+			camera = $("#CameraSelect").val();
+			if(o.fields.camera == camera){
+				ctx.beginPath();
+				ctx.lineWidth="6";
+				ctx.strokeStyle="yellow";
+				ctx.rect(o.fields.min_x,o.fields.min_y,o.fields.max_x-o.fields.min_x,o.fields.max_y-o.fields.min_y);
+				ctx.stroke();
+			}
 
-	// 		});
-	// 	}
-	// }
+		});
+		
+	}
 
-		// for (n = 0; n < JsonData.length; ++n) {
-		// 	obj= JsonData[n]
-		// 	ctx.beginPath();
-		// 	ctx.lineWidth="7";
-		// 	ctx.strokeStyle="yellow";
-		// 	ctx.rect(obj.ix,obj.iy,obj.fx-obj.ix,obj.fy-obj.iy);
-		// 	ctx.stroke();
-		// }
-	// }
 
 	function getCursorPosition(canvas, event) {
 		var x, y;
@@ -79,8 +74,10 @@
 			// Blue rectangle
 			cameraselect = document.getElementById( "CameraSelect" );
 			cameraid =  cameraselect.value;
-			RoiJson.push([{"model": "main.roi", "pk": pk, "fields": {"name": "F1", "min_y": iy, "min_x": ix, "max_x": fx, "max_y": fy, "camera":cameraid ,"occupied": 0}}]);
+			RoiJson.push({"model": "main.roi", "pk": pk, "fields": {"name": "F1", "min_y": iy, "min_x": ix, "max_x": fx, "max_y": fy, "camera":cameraid ,"occupied": 0}});
 			sendRect(ix, iy, fx, fy);
+			
+
 		}, false);
 
 	</script>

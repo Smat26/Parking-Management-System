@@ -10,7 +10,7 @@ from models import Roi, Camera
 
 # Create your views here.
 
-
+Streaming = True
 @login_required
 def panel(request):
     src = '\"http://' + str(request.META['HTTP_HOST']) + '/video/\"'
@@ -34,6 +34,8 @@ def gen(stream):
 def videofeed(request):
     url = 'rtsp://mm2.pcslab.com/mm/7m800.mp4'
     if request.method == 'POST':
+        Streaming = False
+        print('Streaming is :'+str(Streaming))
         myDict = dict(request.POST.iterlists())
         # print('Dict: '+ myDict['url'][0])
         url = myDict['url'][0]
@@ -50,11 +52,13 @@ def videofeed(request):
     # return HttpResponse('<html><body><img src="data:image/JPEG;base64,' + contents + ' " width="720" height="480"/></body></html>')
     # return HttpResponse(gen(Camera()),
     #                 content_type='multipart/x-mixed-replace; boundary=frame')
-
     # print("URL = "+ url)
+
     response = StreamingHttpResponse(
         gen(Stream(url)), content_type="multipart/x-mixed-replace; boundary=frame")
     # a.save(response, "JPEG")
+    Streaming = True
+    print('Streaming is :' + str(Streaming))
     return response
 
     # response =  HttpResponse(content_type="image/jpeg")
